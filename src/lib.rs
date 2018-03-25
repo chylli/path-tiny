@@ -1,9 +1,8 @@
-
 #[allow(dead_code)]
 struct Path {
     path : String,
 }
-
+#[allow(dead_code)]
 fn path(path_name: &str) -> Path {
     Path{
         path: path_name.to_string()
