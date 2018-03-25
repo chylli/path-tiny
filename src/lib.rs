@@ -1,12 +1,13 @@
+
+#[allow(dead_code)]
 struct Path {
     path : String,
-    cpath : String
 }
 
 fn path(path_name: &str) -> Path {
     Path{
-        path: path_name.to_string(),
-        cpath: path_name.to_string()}
+        path: path_name.to_string()
+    }
 }
 
 #[cfg(test)]
