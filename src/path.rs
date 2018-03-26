@@ -12,9 +12,8 @@ pub fn path(path_name: &str) -> Path {
 
 impl Path {
     pub fn children(&self, sub_path: &str) -> Self {
-        let mut owned_string = self.path.to_owned();
-        let concat_string = owned_string + "/" + sub_path;
-        path( &concat_string )
+        let full_path = self.path.to_owned() + "/" + sub_path;
+        path( &full_path )
     }
 }
 
