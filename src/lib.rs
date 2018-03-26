@@ -12,13 +12,10 @@ fn path(path_name: &str) -> Path {
 }
 
 fn canon_path(path_name: &str) -> String {
-    // remove /../..
-    let re1 = Regex::new(r"//").unwrap();
-    let re2 = Regex::new(r"^/\.\.").unwrap();
+    let re1 = Regex::new(r"^/\.\.|//").unwrap();
     let mut result =  path_name.to_string();
-    while re1.is_match(&result) || re2.is_match(&result){
-        let string1 = re1.replace_all(&result, "/").to_string();
-        result = re2.replace_all(&string1,"/").to_string();
+    while re1.is_match(&result){
+        result = re1.replace_all(&result, "/").to_string();
     }
     result
 }
