@@ -10,6 +10,15 @@ pub fn path(path_name: &str) -> Path {
     }
 }
 
+impl Path {
+    pub fn children(&self, sub_path: &str) -> Self {
+        let mut owned_string = self.path.to_owned();
+        let concat_string = owned_string + "/" + sub_path;
+        path( &concat_string )
+    }
+}
+
+
 fn canon_path(path_name: &str) -> String {
     lazy_static! {
         static ref RE: Regex = Regex::new(r"^/\.\.|//").unwrap();
@@ -35,5 +44,12 @@ mod tests {
         assert_eq!(super::canon_path("/../../hello"), "/hello");
         assert_eq!(super::canon_path("///hello"), "/hello");
         assert_eq!(super::canon_path("//../hello"), "/hello");
+    }
+
+    #[test]
+    fn children_works() {
+        let p1 = super::path("/tmp");
+        let p2 = p1.children("abc");
+        assert_eq!(p2.path, "/tmp/abc");
     }
 }
