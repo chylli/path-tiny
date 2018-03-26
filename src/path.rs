@@ -11,10 +11,12 @@ pub fn path(path_name: &str) -> Path {
 }
 
 fn canon_path(path_name: &str) -> String {
-    let re1 = Regex::new(r"^/\.\.|//").unwrap();
+    lazy_static! {
+        static ref RE: Regex = Regex::new(r"^/\.\.|//").unwrap();
+    }
     let mut result =  path_name.to_string();
-    while re1.is_match(&result){
-        result = re1.replace_all(&result, "/").to_string();
+    while RE.is_match(&result){
+        result = RE.replace_all(&result, "/").to_string();
     }
     result
 }

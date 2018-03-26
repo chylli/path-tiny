@@ -9,3 +9,4 @@ license = "MIT"
 
 [dependencies]
 regex = "0.2.10"
+lazy_static = "1.0.0"
