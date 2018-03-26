@@ -28,6 +28,10 @@ mod tests {
         let path_name = "tmp/a.txt";
         let p1 = super::path(path_name);
         assert_eq!(p1.path, path_name);
+    }
+
+    #[test]
+    fn canon_path_works(){
         assert_eq!(super::canon_path("/../../hello"), "/hello");
         assert_eq!(super::canon_path("///hello"), "/hello");
         assert_eq!(super::canon_path("//../hello"), "/hello");
