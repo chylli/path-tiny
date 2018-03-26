@@ -6,7 +6,7 @@ pub struct Path {
 
 pub fn path(path_name: &str) -> Path {
     Path{
-        path: path_name.to_string()
+        path: canon_path(path_name)
     }
 }
 
