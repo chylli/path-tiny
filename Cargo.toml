@@ -1,7 +1,11 @@
 [package]
 name = "path-tiny"
 version = "0.1.0"
-authors = ["Chylli <chylli@binary.com>"]
+authors = ["Chylli <chylli@163.com>"]
+description = "Toos for path & file in Rust"
+repository = "https://github.com/chylli/path-tiny"
+keywords = ["path", "tools"]
+license = "MIT"
 
 [dependencies]
 regex = "0.2.10"
