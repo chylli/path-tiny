@@ -33,9 +33,9 @@ fn canon_path(path_name: &str) -> String {
 mod tests {
     #[test]
     fn path_works() {
-        let path_name = "tmp/a.txt";
+        let path_name = "/../../tmp//../a.txt";
         let p1 = super::path(path_name);
-        assert_eq!(p1.path, path_name);
+        assert_eq!(p1.path, "/tmp/../a.txt");
     }
 
     #[test]
